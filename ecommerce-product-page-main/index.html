@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Quicksand&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+<body>
+
+  <!--------------------- Page Header & Navigation --------------------->
+  <section class="page_header">
+      <div class="header_row">
+          <div class="sidebar_icon_container" onclick="sidebarIon_transform()">
+              <div class="bar bar1"></div>
+              <div class="bar bar2"></div>
+              <div class="bar bar3"></div>
+          </div>
+          <div class="logo_container">
+              <img src="images/logo.svg">
+          </div>
+          <div class="navbar_container">
+              <ul>
+                  <li><a href="">Collection</a></li>
+                  <li><a href="">Men</a></li>
+                  <li><a href="">Women</a></li>
+                  <li><a href="">About</a></li>
+                  <li><a href="">Contact</a></li>
+              </ul>
+          </div>
+          <div class="header_right_icons_container">
+              <div class="cart_icon_container">
+                  <div class="notification_count_container">
+                      <p>0</p>
+                  </div>
+                  <img src="images/icon-cart.svg" alt="">
+              </div>
+              <div class="avatar_icon_container">
+                  <img src="images/image-avatar.png" alt="">
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!--------------------- Page Contet --------------------->
+
+  <section class="page_content">
+    <div class="page_content_row">
+        <div class="page_content_col img_content_col">
+        <div class="main_img_container" onclick="lightboxOpen()">
+                <img id="mainImg" src="images/image-product-1.jpg" alt="">
+            </div>
+
+            <div class="img_list_container">
+                <div class="thumb_img_container" onclick="change_main_item_img(0,0)">
+                    <div class="layer_above_thumb selected_layer_above_thumb"></div>
+                    <img class="thumb_img" src="images/image-product-1-thumbnail.jpg" alt="">
+                    
+                </div>
+                <div class="thumb_img_container" onclick="change_main_item_img(1,0)"> 
+                    <div class="layer_above_thumb"></div>
+                    <img src="images/image-product-2-thumbnail.jpg" alt="">
+
+                </div>
+                <div class="thumb_img_container" onclick="change_main_item_img(2,0)">
+                    <div class="layer_above_thumb"></div>
+                    <img src="images/image-product-3-thumbnail.jpg" alt="">
+
+                </div>
+                <div class="thumb_img_container" onclick="change_main_item_img(3,0)">
+                    <div class="layer_above_thumb"></div>
+                    <img src="images/image-product-4-thumbnail.jpg" alt="">
+
+                </div>
+            </div>
+        </div>
+        <div class="page_content_col text_content_col">
+            <p class="description_title">SNEAKER COMPANY</p>
+            <p class="item_name"></p>
+            <p class="item_description"></p>
+            <div class="price_container">
+                <p class="price"></p>
+                <div class="discount_container">
+                    <p class="discount"></p>
+                </div>
+            </div>
+            <p class="real_price"></p>
+            <div class="purchase">
+                <div class="plusminus_container minus" onclick="changeQty(-1)">
+                    <img src="images/icon-minus.svg" alt="">
+                </div>
+                <div class="qty_container">
+                    <p class="qty">0</p>
+                </div>
+                <div class="plusminus_container plus" onclick="changeQty(1)">
+                    <img src="images/icon-plus.svg" alt="">
+                </div>
+                <div class="add_button active_add_button">
+                    <img src="images/icon-cart - white.svg" alt="">
+                    <p class="add_to_cart">Add to cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!--------------------- Cart Overview --------------------->
+  <div class="cart">
+      <div class="cart_header_container">
+          <p class="cart_header">Cart</p>
+      </div>
+      <div class="empty_cart_container">
+
+      </div>
+      <div class="filled_cart_container">
+        
+      </div>
+  </div>
+
+  <!--------------------- Lightbox --------------------->
+  <div class="lightbox_container">
+      <div class="lightbox_content">
+        <div class="close_icon_container" onclick="lightboxClose()">
+            <img src="images/icon-close.svg" alt="">
+        </div>
+        <div class="main_img_container lightbox_main_img_container">
+            <div class="prevnext_icon_container prev" onclick="prevnextClick(-1)">
+                <img src="images/icon-previous.svg" alt="">
+            </div>
+            <img id="mainImg_lightbox" src="images/image-product-1.jpg" alt="">
+            <div class="prevnext_icon_container next" onclick="prevnextClick(1)">
+                <img src="images/icon-next.svg" alt="">
+            </div>
+        </div>
+
+        <div class="img_list_container lightbox_img_list_container">
+            <div class="thumb_img_container lightbox_thumb_img_container" onclick="change_main_item_img(4,1)">
+                <div class="layer_above_thumb selected_layer_above_thumb"></div>
+                <img class="thumb_img" src="images/image-product-1-thumbnail.jpg" alt="">
+                
+            </div>
+            <div class="thumb_img_container lightbox_thumb_img_container" onclick="change_main_item_img(5,1)"> 
+                <div class="layer_above_thumb"></div>
+                <img src="images/image-product-2-thumbnail.jpg" alt="">
+
+            </div>
+            <div class="thumb_img_container lightbox_thumb_img_container" onclick="change_main_item_img(6,1)">
+                <div class="layer_above_thumb"></div>
+                <img src="images/image-product-3-thumbnail.jpg" alt="">
+
+            </div>
+            <div class="thumb_img_container lightbox_thumb_img_container" onclick="change_main_item_img(7,1)">
+                <div class="layer_above_thumb"></div>
+                <img src="images/image-product-4-thumbnail.jpg" alt="">
+            </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="other_sec">
+      
+  </div>
+
+  <!--------------------- Scripts --------------------->
+  <script>
+      //Declaring elements
+      var mainImg = document.getElementById("mainImg");
+      var imgThumbs_abovLayer = document.getElementsByClassName("layer_above_thumb");
+      let qtyText = document.getElementsByClassName("qty");
+      let addToCartButton = document.getElementsByClassName("add_button");
+
+      //Declaring default processes
+      let curLightboxImg = 0
+      change_main_item_img(0,0);
+
+      let curQty = 0;
+      changeQty(0);
+
+      //Changing the main image by selectig using thumbs      
+      function change_main_item_img(imgIndex, mainImgIndex){
+
+          switch(imgIndex){
+              case 0 :
+                  mainImg.src = "images/image-product-1.jpg"
+                  break;
+              case 1 :
+                  mainImg.src = "images/image-product-2.jpg"
+                  break;
+              case 2 :
+                  mainImg.src = "images/image-product-3.jpg"
+                  break;
+              case 3 :
+                  mainImg.src = "images/image-product-4.jpg"
+                  break;
+              case 4 :
+                  mainImg_lightbox.src = "images/image-product-1.jpg"
+                  curLightboxImg = 0;
+                  break;
+              case 5 :
+                  mainImg_lightbox.src = "images/image-product-2.jpg"
+                  curLightboxImg = 1;
+                  break;
+              case 6 :
+                  mainImg_lightbox.src = "images/image-product-3.jpg"
+                  curLightboxImg = 2;
+                  break;
+              case 7 :
+                  mainImg_lightbox.src = "images/image-product-4.jpg"
+                  curLightboxImg = 3;
+                  break;
+          }
+
+          let loopStart;
+          let loopEnd;
+          if(mainImgIndex==0){
+              loopStart = 0;
+              loopEnd = 4;
+          }else{
+            loopStart = 4;
+            loopEnd = 8;
+          }
+          for(var i=loopStart;i<loopEnd;i++){
+            imgThumbs_abovLayer[i].className = imgThumbs_abovLayer[i].className.replace(" selected_layer_above_thumb","");
+          }
+          imgThumbs_abovLayer[imgIndex].className += " selected_layer_above_thumb";
+      }
+
+      //Declaring details of the item
+      var itemName = "Fall Limited Edition Sneakers";
+      var itemDescription = "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.";
+      var itemInitPrice = 250.00;
+      var itemDiscountPercentage = 50.00;
+
+      document.getElementsByClassName("item_name")[0].innerHTML = itemName;
+      document.getElementsByClassName("item_description")[0].innerHTML = itemDescription;
+      document.getElementsByClassName("discount")[0].innerHTML = itemDiscountPercentage + "%";
+      document.getElementsByClassName("real_price")[0].innerHTML = "$" + itemInitPrice.toFixed(2);
+      var price = itemInitPrice * (itemDiscountPercentage/100)
+      document.getElementsByClassName("price")[0].innerHTML = "$" + price.toFixed(2);
+
+      //Qty changing by clicking plus/minus
+      function changeQty(change){
+          if(curQty == 0 && change == -1){
+              return;
+          }else{
+              curQty += change;
+              if(curQty==0){
+                addToCartButton[0].className = addToCartButton[0].className.replace("active_add_button","disabled_add_button");
+              }
+              else{
+                  addToCartButton[0].className = addToCartButton[0].className.replace("disabled_add_button","active_add_button");
+              }
+              qtyText[0].innerHTML = curQty;
+          }
+      }
+
+      //Lightbox open
+      function lightboxOpen(){
+        change_main_item_img(4,1);
+        document.getElementsByClassName("lightbox_container")[0].style.display = "flex";
+        curLightboxImg = 0
+      }
+
+      //Lightbox close
+      function lightboxClose(){
+        document.getElementsByClassName("lightbox_container")[0].style.display = "none";
+        curLightboxImg = 0
+      }
+
+      //Lightbox Prev Next Buttons
+      function prevnextClick(amount){ //Amount is +1 or -1 based on prev or next
+        curLightboxImg += amount;
+        if(curLightboxImg>3){
+            curLightboxImg = 0;
+        }else if(curLightboxImg<0){
+            curLightboxImg = 3;
+        }
+
+        change_main_item_img(curLightboxImg+4,1);
+      } 
+
+      //Sidebar Icon Transformation
+      function sidebarIon_transform(){
+          document.getElementsByClassName("sidebar_icon_container")[0].classList.toggle("changed_sidebar_icon");
+      }
+  </script>
+  
+</body>
+</html>
